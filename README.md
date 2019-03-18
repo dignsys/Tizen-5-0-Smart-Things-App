@@ -7,4 +7,6 @@ pm25
 distance50
   - SRF02 Ultrasonic range finder Sensor App
 
+pwm_led
+  - 3 color led for pwm Sensor App
 

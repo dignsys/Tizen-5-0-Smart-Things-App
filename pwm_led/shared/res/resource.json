@@ -1,0 +1,30 @@
+{
+  "resources": {
+    "single": [
+      {
+        "uri": "/capability/switch/main/0",
+        "types": [
+          "x.com.st.powerswitch"
+        ],
+        "interfaces": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ]
+      }
+    ]
+  },
+  "resourceTypes": [
+    {
+      "type": "x.com.st.powerswitch",
+      "properties": [
+        {
+          "key": "power",
+          "type": "string",
+          "readOnly": 3,
+          "mandatory": true,
+          "isArray": false
+        }
+      ]
+    }
+  ]
+}
