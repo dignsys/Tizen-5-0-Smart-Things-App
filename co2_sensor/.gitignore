@@ -1,0 +1,9 @@
+Debug/
+.sign/
+SA_Report/
+res/certificate.pem
+res/privatekey.der
+shared/res/master.json
+.exportMap
+.package-stamp
+.smartthingsapp

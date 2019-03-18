@@ -1,0 +1,96 @@
+{
+  "resources": {
+    "single": [
+      {
+        "uri": "/capability/switch/main/0",
+        "types": [
+          "x.com.st.powerswitch"
+        ],
+        "interfaces": [
+          "oic.if.a",
+          "oic.if.baseline"
+        ]
+      },
+      {
+        "uri": "/capability/airQualitySensor/main/0",
+        "types": [
+          "x.com.st.airqualitylevel"
+        ],
+        "interfaces": [
+          "oic.if.s",
+          "oic.if.baseline"
+        ]
+      },
+      {
+        "uri": "/capability/thermostatCoolingSetpoint/main/0",
+        "types": [
+          "x.com.st.temperature.cooling"
+        ],
+        "interfaces": [
+          "oic.if.a",
+          "oic.if.s",
+          "oic.if.baseline"
+        ]
+      }
+    ]
+  },
+  "resourceTypes": [
+    {
+      "type": "x.com.st.powerswitch",
+      "properties": [
+        {
+          "key": "power",
+          "type": "string",
+          "readOnly": 3,
+          "mandatory": true,
+          "isArray": false
+        }
+      ]
+    },
+    {
+      "type": "x.com.st.airqualitylevel",
+      "properties": [
+        {
+          "key": "airQuality",
+          "type": "double",
+          "readOnly": 1,
+          "mandatory": true,
+          "isArray": false
+        },
+        {
+          "key": "range",
+          "type": "double",
+          "readOnly": 1,
+          "mandatory": true,
+          "isArray": true
+        }
+      ]
+    },
+    {
+      "type": "x.com.st.temperature.cooling",
+      "properties": [
+        {
+          "key": "temperature",
+          "type": "double",
+          "readOnly": 3,
+          "mandatory": true,
+          "isArray": false
+        },
+        {
+          "key": "range",
+          "type": "double",
+          "readOnly": 3,
+          "mandatory": true,
+          "isArray": true
+        },
+        {
+          "key": "units",
+          "type": "string",
+          "readOnly": 3,
+          "mandatory": true,
+          "isArray": false
+        }
+      ]
+    }
+  ]
+}
