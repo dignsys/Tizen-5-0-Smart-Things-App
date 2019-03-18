@@ -45,9 +45,8 @@
 #define MCP3008_RX_WORD3_MASK 0xFF	/* 0b11111111 */
 #define UINT10_VALIDATION_MASK 0x3FF
 
-#define MODEL_NAME_KEY "http://tizen.org/system/model_name"
-#define MODEL_NAME_RPI3 "rpi3"
-#define MODEL_NAME_ARTIK "artik"
+#define SPI_BUS_STDTA7D	0
+#define SPI_CS_STDTA7D	0
 
 static peripheral_spi_h MCP3008_H = NULL;
 static unsigned int ref_count = 0;
@@ -62,8 +61,8 @@ static unsigned int ref_count = 0;
 int resource_adc_mcp3008_init(void)
 {
 	int ret = 0;
-	int bus = -1;
-	char *model_name = NULL;
+	int bus = SPI_BUS_STDTA7D;
+	int chip_select = SPI_CS_STDTA7D;
 
 	if (MCP3008_H) {
 		_D("SPI device already initialized [ref_count : %u]", ref_count);
@@ -73,26 +72,7 @@ int resource_adc_mcp3008_init(void)
 		return 0;
 	}
 
-	system_info_get_platform_string(MODEL_NAME_KEY, &model_name);
-	if (!model_name) {
-		_E("fail to get model name");
-		return -1;
-	}
-
-	if (!strcmp(model_name, MODEL_NAME_RPI3)) {
-		bus = 0;
-	} else if (!strcmp(model_name, MODEL_NAME_ARTIK)) {
-		bus = 2;	// ARTIK (2)
-	} else {
-		_E("unknown model name : %s", model_name);
-		free(model_name);
-		return -1;
-	}
-	_D("%s model_name: %s, bus: %d", __func__, model_name, bus);
-	free(model_name);
-	model_name = NULL;
-
-	ret = peripheral_spi_open(bus, 0, &MCP3008_H);
+	ret = peripheral_spi_open(bus, chip_select, &MCP3008_H);
 	if (PERIPHERAL_ERROR_NONE != ret) {
 		_E("spi open failed :%s ", get_error_message(ret));
 		return -1;
