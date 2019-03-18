@@ -1,3 +1,4 @@
+
 #include <tizen.h>
 #include <service_app.h>
 #include "log.h"
@@ -67,3 +68,4 @@ peripheral_error_e resource_pwm_driving(bool status)
 
 	return ret;
 }
+

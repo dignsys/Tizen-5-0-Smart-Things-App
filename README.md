@@ -9,4 +9,7 @@ distance50
 
 pwm_led
   - 3 color led for pwm Sensor App
+  - an led for gpio Sensor App
 
+co2_sensor
+  - SPI : Co2 sensor (ADC) with  MCP3008 (A/D Converters with SPI Serial Interface)

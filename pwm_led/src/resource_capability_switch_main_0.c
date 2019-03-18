@@ -18,15 +18,19 @@
 static bool switch_status = false;
 
 extern peripheral_error_e resource_pwm_driving(bool status);
-
+extern peripheral_error_e resource_led_driving(bool status);
 
 void set_switch_status(bool status)
 {
 	switch_status = status;
-	if (switch_status == true)
+	if (switch_status == true) {
 		resource_pwm_driving(true);
-	else
+		resource_led_driving(true);
+	}
+	else {
 		resource_pwm_driving(false);
+		resource_led_driving(true);
+	}
 }
 
 bool handle_get_request_on_resource_capability_switch_main_0(smartthings_payload_h resp_payload, void *user_data)
